@@ -1,0 +1,48 @@
+<div class="col-sm-6" ng-init="friendsPageInit()">
+                              <div class="panel panel-default">
+                                <div class="panel-heading">
+                               <div class="container">
+   								<ul class="nav navbar-nav" style=" color: #9197a3; font-size: 14px; font-family: Helvetica Neue,Helvetica,Arial,sans-serif;">
+   								<li style="padding-right:30px; padding-left:30px; border-right: 1px solid #ccc;"><a href="#">Timeline</a></li>
+   								<li style="padding-right:30px; padding-left:30px; border-right: 1px solid #ccc;"><a href="#">About</a></li>
+   								<li style="padding-right:30px; padding-left:30px; border-right: 1px solid #ccc;"><a href="#">Friends</a></li>
+   								<li style="padding-right:47px; padding-left:30px;"><a href="#">Photos</a></li>
+   								</ul>
+   								</div>
+                                </div>
+                               	<div class="panel-body">
+                               	<h4><img src="https://lh3.googleusercontent.com/uFp_tsTJboUY7kue5XAsGA=s28" width="28px" height="28px">Friends
+                               	<div class="input-group input-group-sm" style="max-width:360px;">
+                          		
+                          		<input type="text" class="typeahead form-control" placeholder="Search" ng-model="srchname" id="srch-term" style="width:350px;">
+                          		<div class="input-group-btn">
+                           		 	<button class="btn btn-default" type="submit" ng-click="friendsSearch(srchname)"><i class="glyphicon glyphicon-search"></i></button>
+                         		</div>
+                         		
+                        		</div>
+                        		</h4>
+                               	      <div ng-repeat = "mem1 in frnd1.memList track by $index" ng-hide="searchfrnd">
+	                                  <div>
+	                                  <ul>
+	                                  <li class="list-unstyled" style="margin-left:-10px;margin-top:20px"><p><img src="https://lh3.googleusercontent.com/uFp_tsTJboUY7kue5XAsGA=s28" width="28px" height="28px">{{mem1|split:":":0}}</p><button class="btn btn-success btn-sm" style="margin-right:20px;margin-left:300px" ng-click="addfriend(mem1)">Add friend</button></li>
+	                                  </ul>
+	                                  </div>
+	                                  </div>
+	                                  <div ng-model="addfrndfailed"><span style="color:red;font-size:12pt;">{{addfrndfailed}}</span></div>
+	                                  <div ng-repeat = "mem2 in frnd2.memList track by $index" ng-hide="frndrequest">
+	                                  <div>
+	                                  <ul>
+	                                  <li class="list-unstyled" style="margin-left:-10px;margin-top:20px"><p><img src="https://lh3.googleusercontent.com/uFp_tsTJboUY7kue5XAsGA=s28" width="28px" height="28px">{{mem2|split:":":0}}<button class="btn btn-primary btn-sm" style="margin-right:20px;margin-left:300px" ng-click="acceptfriend(mem2)">Confirm</button></p></li>
+	                                  </ul>
+	                                  </div>
+	                                  </div>
+	                                  <div ng-repeat = "mem3 in frnd3.memList track by $index" ng-hide="frndconfirmed">
+	                                  <div>
+	                                  <ul>
+	                                  <li class="list-unstyled" style="margin-left:-10px;margin-top:20px"><p><img src="https://lh3.googleusercontent.com/uFp_tsTJboUY7kue5XAsGA=s28" width="28px" height="28px">{{mem3|split:":":0}}<button class="btn btn-default btn-sm" style="margin-right:20px;margin-left:300px">Friends</button></p></li>
+	                                   <hr width="575px" style="margin-left:-15px">
+	                                  </ul>
+	                                  </div>
+	                                 </div>
+	                                 
+	                                 </div>
